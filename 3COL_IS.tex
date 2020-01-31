@@ -1,0 +1,17 @@
+\documentclass{amsart}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+\noindent
+\textbf{Proof:} $3COL \le_T IS$\\
+
+Let $G = (V, E)$ be a graph. This graph is 3-colorable iff there is a way to partition its vertices into 3 independent sets (by the definition of 3-colorability). Splitting $G$'s vertices into 3 independent sets requires that at least one of these sets has size at least $k = \lfloor \frac{|V|}{3} \rfloor$. Thus given an algorithm $B$ that solves $IS$, our algorithm for $3COL$ is simply to return $B(G, k)$.\\
+
+\hfill$\qed$
+
+\textbf{Proof:} $IS \le_T 3COL$\\
+
+?
+
+\end{document}
+
