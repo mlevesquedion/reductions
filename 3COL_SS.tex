@@ -1,0 +1,32 @@
+\documentclass{amsart}
+\usepackage[utf8]{inputenc}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+
+\begin{document}
+\noindent
+\textbf{Proof:} $3COL \le_p SS$\\
+
+This proof is inspired by the proof that $3SAT \le_p SS$.
+
+Let $G = (V, E)$ be a graph. We will construct an instance of $SS$ that has a solution iff $G$ is 3-colorable.
+
+For each vertex $v_i \in V$, we construct three binary numbers $a_i, b_i$ and $c_i$ of $3n + n = 4n$ bits. The $3n$ most significant bits will be used to enforce the constraint that no two adjacent vertices can have the same color. The $n$ least significants bits will be used to assign a color to each vertex. Our target sum will be the binary number $2^{4n}-1$ (a string of $4n$ ones).
+
+The $n$ least significant bits in number $a_i$ encode ``the vertex $v_i$ has color a''. This is done by setting the $i_{th}$ bit to 1 in each of $a_i, b_i$ and $c_i$ (the other bits are all set to zero). Since in the target sum each bit $b_i \in [0, n) = 1$, only one color can be chosen for each vertex.
+
+The $3n$ most significant bits are used to encode ``none of the neighbors of $v_i$ have the same color as $v_i$''. For this purpose, the $3n$ bits are divided into $n$ groups of three. In each group, a 1 in position one represents ``the vertex $v_j$ has color a'', position two corresponds to color b, and three to c. Therefore in $a_i$, the first bit in the $i_{th}$ group is set to one ($v_i$ has color a), and similarly the first bit in every group corresponding to a vertex $v_j$ adjacent to $v_i$ is set to 1. The other bits are set to 0.
+
+Finally, to allow for the possibility that some colors in each ``group'' of three colors are not used, an additional $3n$ numbers (slacks) of $4n$ bits are constructed, each with a single 1 bit in one of the $3n$ most significant positions.
+
+Assume there is a 3-coloring of $G$. Then, an appropriate subset can be created by selecting the numbers that correspond to each vertex's color. Since each vertex must have a color, exactly one number is chosen for each vertex, setting the first $n$ bits to 1. Since no adjacent vertices have the same color, for each of the $3n$ most significant bits, at most one of the chosen numbers has a 1 in each position. The slacks can be used to fill in for the unused colors.
+
+Assume there is a subset of numbers that sums to $2^{4n} - 1$. Then a valid coloring can be constructed by assigning colors to the vertices according to which of $a_i, b_i$ or $c_i$ is selected, ignoring the slacks.
+
+The transformation is clearly polynomial, since it consists of creating $3n + 3n = 6n$ numbers of $4n$ bits each.
+
+\hfill$\qed$
+
+\end{document}
+
