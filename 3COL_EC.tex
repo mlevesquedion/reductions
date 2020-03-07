@@ -1,0 +1,19 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0em}
+\setlength\parskip{0.75em}
+\renewcommand\baselinestretch{1.3}
+\usepackage[utf8]{inputenc}
+\usepackage[legalpaper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+\textbf{Proof:} $3COL \le_p EC$.
+
+Let $G = (V, E)$ be a graph. For a vertex $v \in V$, let $n(v)$ be the set of neighbors of $v$. For each vertex $v \in V$, for each color $c$, create a ``neighborhood'' set $\{u_{c} \mid u \in n(v)\} \cup \{v, v_c\}$. Additionally, for each vertex $v \in V$ and for each color $c$, create a ``slack'' set $\{v_c\}$. Then, let $X$ be the union of all of the sets constructed so far, and let $S$ be the set containing the sets constructed so far. Then, $G$ is 3-colorable iff an exact cover for $X$ can be constructed from sets in $S$.
+
+Let $C$ be a 3-coloring of $G$. Then, a valid cover can be obtained by picking, for each $v \in V$, the neighborhood set that matches its color in $C$ (e.g., for a vertex $x$ colored $c$, the set containing $x$, $x_c$ and its neighbors $u_c$). Each $u_c$ cannot be covered more than once, since adjacent vertices must have different colors, therefore the corresponding neighborhood sets cannot intersect. The slack sets can be used to complete the cover.
+
+Let $S^*$ be an exact cover. Then, a valid coloring is obtained by coloring each $v \in V$ with the color that matches the neighborhood set containing $v$ in $S^*$. For each $v \in V$, there is exactly one neighborhood set in $S^*$. Indeed, the only way to obtain an element $v$ is to select one of its neighborhood sets, and at most one can be selected since they all contain $v$. Furthermore, neighborhood sets in $S^*$ for adjacent vertices cannot intersect, so they must have different colors. The slack sets in $S^*$ can simply be ignored.
+\end{document}
+

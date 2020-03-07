@@ -1,0 +1,16 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0em}
+\setlength\parskip{0.75em}
+\renewcommand\baselinestretch{1.3}
+\usepackage[utf8]{inputenc}
+\usepackage[legalpaper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+\textbf{Proof:} $EC \le_p SS$\\
+
+Let $S$ be a collection of subsets of a set $X$. Number the elements in the sets in $S$ such that no two elements have the same number, starting at 0. Let $n = |X|$. Then, for each set in $S$, construct an n-digit binary number in which the bit in the $i_{th}$ position is 1 iff the $i_{th}$ element is in the set. The target sum is $2^{n} - 1$ (a string of $n$ ones). Clearly, there is a subset of numbers that hits the target sum iff there is a collection of sets in $S^*$ that covers $X$, since selecting a set in $S^*$ is equivalent to selecting a binary number and hitting the target sum is equivalent to selecting each element exactly once.
+
+\end{document}
+
