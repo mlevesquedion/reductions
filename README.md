@@ -4,3 +4,4 @@ Practicing reductions between problems, mostly poly-time transformations between
 
 EC = Exact Cover.
 SS = Subset Sum.
+SC = Set Cover.
