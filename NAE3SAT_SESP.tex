@@ -1,0 +1,25 @@
+\documentclass[12pt]{amsart}
+
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper, margin=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{titlesec}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.75em}
+\renewcommand\baselinestretch{1}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+\begin{document}
+
+To reduce from NAE-3SAT, a set $S$ is constructed containing each variable (as a literal) and its complement. A collection of subsets $C$ is made from the sets of literals in each clause. Then, there is a splitting of $S$ iff each variable can be assigned a truth value such that each clause has at least one true and one false literal.
+
+\hfill$\qed$
+
+\end{document}
